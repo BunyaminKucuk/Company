@@ -1,0 +1,47 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Employee List</h4>
+          <div class="table-responsive">
+            <table class="table table-hover">
+              <thead class="">
+                <tr>
+                  <th>Employee Name</th>
+                  <th>Employee Salary</th>
+                  <th>Employee Phone</th>
+                  <th>Employee Mail</th>
+                  <th>Employee Delete</th>
+                  <th>Employee Update</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of employee">
+                  <td>{{item.EmployeeFirstName}} {{item.EmployeeLastName}}</td>
+                  <td>{{item.EmployeeSalary}}</td>
+                  <td>{{item.EmployeePhone}}</td>
+                  <td>{{item.EmployeeMail}}</td>
+                  <td>
+                    <span class="material-icons">
+                      <a type="button" (click)="employeeDelete(item.EmployeeId)">
+                        <i class="text-danger">delete_sweep</i>
+                      </a>
+                    </span>
+                  </td>
+                  <td>
+                    <span class="material-icons">
+                      <a [routerLink]="['/employee-update/',item.EmployeeId]">
+                        <i class="text-info">update</i>
+                      </a>
+                    </span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

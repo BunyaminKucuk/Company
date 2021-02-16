@@ -1,0 +1,57 @@
+<!--<div class="row">
+  <div class="col-md-3 col-sm-12 ml-auto ">
+    <mat-form-field class="w-100">
+      <mat-label>Arama</mat-label>
+      <a type="button" matSuffix [attr.aria-label]="'Search'">
+        <mat-icon>search</mat-icon>
+      </a>
+    </mat-form-field>
+  </div>
+</div>-->
+
+<input matInput type="text" [(ngModel)]="searchText" placeholder="Aranacak kelimeyi giriniz" name="SearchText">
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Company List</h4>
+          <div class="table-responsive">
+            <table class="table table-hover">
+              <thead class="">
+                <tr>
+                  <th>Company Name</th>
+                  <th>Company Address</th>
+                  <th>Company Phone</th>
+                  <th>Company Delete</th>
+                  <th>Company Update</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of company">
+                  <td>{{item.CompanyName}}</td>
+                  <td>{{item.CompanyPhone}}</td>
+                  <td>{{item.CompanyAddress}}</td>
+                  <td>
+                    <span class="material-icons">
+                      <a type="button" (click)="companyDelete(item.CompanyId)">
+                        <i class="text-danger">delete_sweep</i>
+                      </a>
+                    </span>
+                  </td>
+                  <td>
+                    <span class="material-icons">
+                      <a class="text-info"  [routerLink]="['/company-update/',item.CompanyId]">update</a>
+                    </span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

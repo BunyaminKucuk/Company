@@ -1,0 +1,56 @@
+<div class="container-fluid">
+  <div class="row">
+    <div classs="col-md-3">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Project List</h4>
+          <select [(ngModel)]="project_id" (ngModelChange)="onProjectSelected($event)" class="browser-default custom-select btnChange mb-2">
+            <option value="aTumu" data-t-v="_tumu">Projects</option>
+            <option *ngFor="let item of project" [value]="item.ProjectId">
+              <td>{{ item.ProjectName }}</td>
+            </option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-9">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Collection List</h4>
+          <div class="table-responsive">
+            <table class="table table-hover">
+              <thead class="">
+                <tr>
+                  <th>Collection Payment</th>
+                  <th>Collection Payment Date</th>
+                  <th>Collection Delete</th>
+                  <th>Collection Update</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of modelCollection">
+                  <td>{{item.CollectionPaymentAmount}}</td>
+                  <td>{{item.CollectionPaymentDate}}</td>
+                  <td>
+                    <span class="material-icons">
+                      <a type="button" (click)="collectionDelete(item.CollectionId)">
+                        <i class="text-danger">delete_sweep</i>
+                      </a>
+                    </span>
+                  </td>
+                  <td>
+                    <span class="material-icons">
+                      <a [routerLink]="['/collection-update/',item.CollectionId]">
+                        <i class="text-info">update</i>
+                      </a>
+                    </span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

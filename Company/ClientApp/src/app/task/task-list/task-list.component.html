@@ -1,0 +1,41 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Task List</h4>
+          <div class="table-responsive">
+            <table class="table table-hover">
+              <thead class="">
+                <tr>
+                  <th>Task Name</th>
+                  <th>Task Delete</th>
+                  <th>Task Update</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of task">
+                  <td>{{item.TaskName}}</td>
+                  <td>
+                    <span class="material-icons">
+                      <a type="button" (click)="taskDelete(item.TaskId)">
+                        <i class="text-danger">delete_sweep</i>
+                      </a>
+                    </span>
+                  </td>
+                  <td>
+                    <span class="material-icons">
+                      <a [routerLink]="['/task-update/',item.TaskId]">
+                        <i class="text-info">update</i>
+                      </a>
+                    </span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

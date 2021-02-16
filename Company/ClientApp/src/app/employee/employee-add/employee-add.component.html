@@ -1,0 +1,60 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Task List</h4>
+          <select [(ngModel)]="customer_id" (ngModelChange)='onEmployeeSelected($event)'
+                  class="browser-default custom-select btnChange mb-2">
+            <option value="aTumu" data-t-v="_tumu">Tasks</option>
+            <option *ngFor="let item of task" [value]="item.TaskId">
+              <td>{{ item.TaskName }}</td>
+            </option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-9">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Employee Add</h4>
+          <form class="pt-3" #employeeForm="ngForm" (ngSubmit)="onSave(employeeForm)">
+            <div class="form-group">
+              <label for="EmployeeFirstName"><strong>Employee FirstName</strong></label>
+              <input type="text" class="form-control form-control-lg" required id="EmployeeFirstName"
+                     placeholder="Please enter employee firstname" name="EmployeeFirstName" #EmployeeFirstName="ngModel" [(ngModel)]="modelEmployee.EmployeeFirstName">
+            </div>
+            <div class="form-group">
+              <label for="EmployeeLastName"><strong>Employee LastName</strong></label>
+              <input type="text" class="form-control form-control-lg" required id="EmployeeLastName"
+                     placeholder="Please enter employee lastname" name="EmployeeLastName" #EmployeeLastName="ngModel" [(ngModel)]="modelEmployee.EmployeeLastName">
+            </div>
+            <div class="form-group">
+              <label for="EmployeeMail"><strong>Employee Mail</strong></label>
+              <input type="text" class="form-control form-control-lg" required id="EmployeeMail"
+                     placeholder="Please enter employee mail" name="EmployeeMail" #EmployeeMail="ngModel" [(ngModel)]="modelEmployee.EmployeeMail">
+            </div>
+            <div class="form-group">
+              <label for="EmployeeSalary"><strong>Employee Salary</strong></label>
+              <input type="text" class="form-control form-control-lg" required id="EmployeeSalary"
+                     placeholder="Please enter employee salary" name="EmployeeSalary" #EmployeeSalary="ngModel" [(ngModel)]="modelEmployee.EmployeeSalary">
+            </div>
+            <div class="form-group">
+              <label for="EmployeePhone"><strong>Employee Phone</strong></label>
+              <input type="text" class="form-control form-control-lg" required id="EmployeePhone"
+                     placeholder="Please enter copmany phone" name="EmployeePhone" #EmployeePhone="ngModel"
+                     [(ngModel)]="modelEmployee.EmployeePhone">
+            </div>
+            <div class="row d-flex justify-content-end">
+              <div class="mt-3">
+                <button class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" type="submit">
+                  Employee Save
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

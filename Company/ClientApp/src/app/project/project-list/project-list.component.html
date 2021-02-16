@@ -1,0 +1,47 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Project List</h4>
+          <div class="table-responsive">
+            <table class="table table-hover">
+              <thead class="">
+                <tr>
+                  <th>Project Name</th>
+                  <th>Project StartTime</th>
+                  <th>Project FinishTime</th>
+                  <th>Project Fee</th>
+                  <th>Project Delete</th>
+                  <th>Project Update</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of project">
+                  <td>{{item.ProjectName}}</td>
+                  <td>{{item.ProjectStarTime}}</td>
+                  <td>{{item.ProjectFinishTime}}</td>
+                  <td>{{item.ProjectFee}}</td>
+                  <td>
+                    <span class="material-icons">
+                      <a type="button" (click)="projectDelete(item.ProjectId)">
+                        <i class="text-danger">delete_sweep</i>
+                      </a>
+                    </span>
+                  </td>
+                  <td>
+                    <span class="material-icons">
+                      <a [routerLink]="['/project-update/',item.ProjectId]">
+                        <i class="text-info">update</i>
+                      </a>
+                    </span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

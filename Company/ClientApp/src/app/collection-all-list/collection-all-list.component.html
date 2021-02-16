@@ -1,0 +1,50 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Collection List</h4>
+          <div class="table-responsive">
+            <table class="table table-hover">
+              <thead class="">
+                <tr>
+                  <th>Collection Payment</th>
+                  <th>Collection Payment Date</th>
+                  <th>Collection Delete</th>
+                  <th>Collection Update</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of collection">
+                  <td>{{item.CollectionPaymentAmount}}</td>
+                  <td>{{item.CollectionPaymentDate}}</td>
+                  <td>
+                    <span class="material-icons">
+                      <a type="button" (click)="collectionDelete(item.CollectionId)">
+                        <i class="text-danger">delete_sweep</i>
+                      </a>
+                    </span>
+                  </td>
+                  <td>
+                    <span class="material-icons">
+                      <a [routerLink]="['/collection-update/',item.CollectionId]">
+                        <i class="text-info">update</i>
+                      </a>
+                    </span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="row d-flex justify-content-end">
+        <div class="mt-3">
+          <a (click)="collectionTotal(item.CollectionId)" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" type="text">
+            Total
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
